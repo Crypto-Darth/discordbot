@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  discordbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: discordbot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      # Optional override; default safe value:
+      NODE_ENV: production
+      # Required in .env: - make sure .env file exists with DISCORD_BOT_TOKEN and N8N_WEBHOOK_URL
+
